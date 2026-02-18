@@ -1,0 +1,6 @@
+apiVersion: v2
+name: httpd
+description: Minimal Helm chart for httpd (from docker-compose)
+type: application
+version: 0.1.0
+appVersion: "latest"

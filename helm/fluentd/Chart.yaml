@@ -1,0 +1,6 @@
+apiVersion: v2
+name: fluentd
+description: Helm chart for fluentd (DaemonSet)
+type: application
+version: 0.1.0
+appVersion: "latest"

@@ -1,0 +1,6 @@
+apiVersion: v2
+name: elasticsearch
+description: Minimal Elasticsearch Helm chart (for demo)
+type: application
+version: 0.1.0
+appVersion: "7.13.1"

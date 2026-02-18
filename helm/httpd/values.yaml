@@ -1,0 +1,9 @@
+image:
+  repository: httpd
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 80
+
+replicaCount: 1

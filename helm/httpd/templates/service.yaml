@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "httpd.fullname" . }}
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ include "httpd.name" . }}
+  ports:
+    - port: 80
+      targetPort: {{ .Values.service.port }}

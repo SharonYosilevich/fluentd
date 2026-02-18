@@ -1,0 +1,19 @@
+image:
+  repository: fluentd
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  port: 24224
+
+replicaCount: 1
+
+config:
+  fluent_conf: |-
+    <source>
+      @type forward
+      port 24224
+      bind 0.0.0.0
+    </source>
+
+    # (rest of fluent.conf can be replaced by editing this value)

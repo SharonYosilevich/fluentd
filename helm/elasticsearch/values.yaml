@@ -1,0 +1,9 @@
+image:
+  repository: docker.elastic.co/elasticsearch/elasticsearch
+  tag: 7.13.1
+  pullPolicy: IfNotPresent
+
+service:
+  port: 9200
+
+replicaCount: 1

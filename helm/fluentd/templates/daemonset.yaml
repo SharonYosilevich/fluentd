@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: {{ include "fluentd.fullname" . }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ include "fluentd.name" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "fluentd.name" . }}
+    spec:
+      containers:
+        - name: fluentd
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.service.port }}
+              name: forward
+          volumeMounts:
+            - name: fluentd-conf
+              mountPath: /fluentd/etc/fluent.conf
+              subPath: fluent.conf
+            - name: fluentd-logs
+              mountPath: /fluentd/logs
+      volumes:
+        - name: fluentd-conf
+          configMap:
+            name: {{ include "fluentd.fullname" . }}-conf
+        - name: fluentd-logs
+          emptyDir: {}
